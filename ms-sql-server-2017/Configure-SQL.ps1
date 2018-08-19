@@ -40,16 +40,17 @@ if (!(Test-Path -path "$installDir")) #create it if not existing
 
 
 
-Write-Warning "Copying Installation files..."
+Write-Output "Copying Installation files..."
 #$installCmd = ".\setup.exe /SQLSVCPASSWORD=""$ServiceAccountPassword"" /AGTSVCPASSWORD=""$ServiceAccountPassword"" /SAPWD=""$saPassword"" /ConfigurationFile=""$configFile"""
-$installCmd1 = "robocopy ""$networkSharedDir1"" ""$installDir"" /E"
+#$installCmd1 = "robocopy ""$networkSharedDir1"" ""$installDir"" /E"
 
-Write-Host $installCmd1
+#Write-Host $installCmd1
 try{
-	Invoke-Expression $installCmd1
+	#Invoke-Expression $installCmd1
+	Copy-Item $networkSharedDir1 -Destination $installDir
 }
 catch{ 
-	Write-Warning "Error while trying to copy files from : $networkSharedDir1 to $installDir"
+	Write-Output "Error while trying to copy files from : $networkSharedDir1 to $installDir"
 }
 
 
