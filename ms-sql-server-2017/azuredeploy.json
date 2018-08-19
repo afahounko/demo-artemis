@@ -190,31 +190,76 @@
       },
       "resources": [
         {
-          "type": "Microsoft.Compute/virtualMachines/extensions",
-          "name": "[concat(variables('vmName'),'/WinRMCustomScriptExtension')]",
-          "apiVersion": "[variables('apiVersion')]",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-          ],
-          "properties": {
-            "publisher": "Microsoft.Compute",
-            "type": "CustomScriptExtension",
-            "typeHandlerVersion": "1.4",
-            "settings": {
-              "fileUris": [
-                "https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017/Configure-SQL.ps1"
-              ],
-              "commandToExecute": "[
-                  concat('powershell -ExecutionPolicy Unrestricted -file Configure-SQL.ps1 ',''),
-                  concat('powershell -ExecutionPolicy Unrestricted -file C:\infra\install\02_force_ExecutionPolicy.ps1 ',''),
-                  concat('powershell -ExecutionPolicy Unrestricted -file c:\infra\install\03_create_svcsql_account.ps1 ',''),
-                  concat('powershell -ExecutionPolicy Unrestricted -file c:\infra\install\04_install_SQL_Instance.ps1 ','sqlinstancename')
-                  
-              ]"
-            }
-          }
-        }
+	"type": "Microsoft.Compute/virtualMachines/extensions",
+	"name": "[concat(variables('vmName'),'/ConfigureSQLCustomScriptExtension')]",
+	"apiVersion": "[variables('apiVersion')]",
+	"location": "[parameters('location')]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	],
+	"properties": {
+		"publisher": "Microsoft.Compute",
+		"type": "CustomScriptExtension",
+		"typeHandlerVersion": "1.4",
+		"settings": {
+			"fileUris": [
+				"https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017/Configure-SQL.ps1"
+			],
+			"commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file Configure-SQL.ps1 ', '')]"
+		}
+	}
+}, {
+	"type": "Microsoft.Compute/virtualMachines/extensions",
+	"name": "[concat(variables('vmName'),'/force_ExecutionPolicyCustomScriptExtension')]",
+	"apiVersion": "[variables('apiVersion')]",
+	"location": "[parameters('location')]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	],
+	"properties": {
+		"publisher": "Microsoft.Compute",
+		"type": "CustomScriptExtension",
+		"typeHandlerVersion": "1.4",
+		"settings": {
+			"fileUris": [],
+			"commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file C:\infra\install\02_force_ExecutionPolicy.ps1 ', '')]"
+		}
+	}
+}, {
+	"type": "Microsoft.Compute/virtualMachines/extensions",
+	"name": "[concat(variables('vmName'),'/create_svcsql_accountCustomScriptExtension')]",
+	"apiVersion": "[variables('apiVersion')]",
+	"location": "[parameters('location')]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	],
+	"properties": {
+		"publisher": "Microsoft.Compute",
+		"type": "CustomScriptExtension",
+		"typeHandlerVersion": "1.4",
+		"settings": {
+			"fileUris": [],
+			"commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file c:\infra\install\03_create_svcsql_account.ps1 ', '')]"
+		}
+	}
+}, {
+	"type": "Microsoft.Compute/virtualMachines/extensions",
+	"name": "[concat(variables('vmName'),'/install_SQL_InstanceCustomScriptExtension')]",
+	"apiVersion": "[variables('apiVersion')]",
+	"location": "[parameters('location')]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	],
+	"properties": {
+		"publisher": "Microsoft.Compute",
+		"type": "CustomScriptExtension",
+		"typeHandlerVersion": "1.4",
+		"settings": {
+			"fileUris": [],
+			"commandToExecute": "[ concat('powershell -ExecutionPolicy Unrestricted -file c:\infra\install\04_install_SQL_Instance.ps1 ', 'artemisd1') ]"
+		}
+	}
+}
       ]
     }
   ]
