@@ -203,9 +203,9 @@
             "typeHandlerVersion": "1.4",
             "settings": {
               "fileUris": [
-                "https://raw.githubusercontent.com/afahounko/demo-artemis/master/01_prep_setup_sql2017.bat"
+                "https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017/Configure-SQL.ps1"
               ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -Command ','start-process ','cmd.exe ', '/c 01_prep_setup_sql2017.bat')]"
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ConfigureSQL.ps1 ','')]"
 
             }
           }
