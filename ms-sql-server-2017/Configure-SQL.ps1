@@ -11,10 +11,10 @@ $patchDir = "C:\Patches.SQL.2017"
 $deploylog = "C:\infra\deploylog"
 $installDir = "C:\infra\install"
 
-$networkSharedDir1 = "\\104.42.153.56\SQL\install"
-$networkSharedDir2 = "\\104.42.153.56\SQL\SSMS"
-$networkSharedDir3 = "\\104.42.153.56\SQL\Patches.SQL.2017"
-$networkSharedDir4 = "\\104.42.153.56\SQL\SQL_Server_2017_Developer"
+$networkSharedDir1 = "Z:\SQL\install"
+$networkSharedDir2 = "Z:\SQL\SSMS"
+$networkSharedDir3 = "Z:\SQL\Patches.SQL.2017"
+$networkSharedDir4 = "Z:\SQL\SQL_Server_2017_Developer"
 
 
 #Check and create folders if not exist
@@ -40,14 +40,25 @@ if (!(Test-Path -path "$installDir")) #create it if not existing
 
 
 
+$installCmd0 = "net use Z: \\artemisdemo.file.core.windows.net\sqlserver2k /u:AZURE\artemisdemo FBu0zBLu8pgJ609ybk/HF6VfjjO7KhjliYuHBjdxXsG4hS+25YQhj/JLt3PnF4gkFfD+tjOqLJxx/bh/JJDI1A=="
+
+try{
+	Invoke-Expression $installCmd0
+}
+catch{ 
+	Write-Output "Error while mounting Z drive"
+}
+
+
+
 Write-Output "Copying Installation files..."
 #$installCmd = ".\setup.exe /SQLSVCPASSWORD=""$ServiceAccountPassword"" /AGTSVCPASSWORD=""$ServiceAccountPassword"" /SAPWD=""$saPassword"" /ConfigurationFile=""$configFile"""
-#$installCmd1 = "robocopy ""$networkSharedDir1"" ""$installDir"" /E"
+$installCmd1 = "robocopy ""$networkSharedDir1"" ""$installDir"" /E"
 
 #Write-Host $installCmd1
 try{
-	#Invoke-Expression $installCmd1
-	Copy-Item $networkSharedDir1 -Destination $installDir
+	Invoke-Expression $installCmd1
+	#Copy-Item $networkSharedDir1 -Destination $installDir
 }
 catch{ 
 	Write-Output "Error while trying to copy files from : $networkSharedDir1 to $installDir"
