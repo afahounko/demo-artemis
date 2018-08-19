@@ -206,9 +206,9 @@
                 "https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017/Configure-SQL.ps1"
               ],
               "commandToExecute": "concat('powershell -ExecutionPolicy Unrestricted -file Configure-SQL.ps1 ','')"
-              "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file 02_force_ExecutionPolicy.ps1"
-              "commandToExecute": "concat('powershell -ExecutionPolicy Unrestricted -file 03_create_svcsql_account.ps1 ','')"
-              "commandToExecute": "concat('powershell -ExecutionPolicy Unrestricted -file 04_install_SQL_Instance.ps1 ','sqlinstancename')"
+              "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file \"c:\infra\install\02_force_ExecutionPolicy.ps1\""
+              "commandToExecute": "concat('powershell -ExecutionPolicy Unrestricted -file \"c:\infra\install\03_create_svcsql_account.ps1\" ','')"
+              "commandToExecute": "concat('powershell -ExecutionPolicy Unrestricted -file \"c:\infra\install\04_install_SQL_Instance.ps1\" ','sqlinstancename')"
 
             }
           }
