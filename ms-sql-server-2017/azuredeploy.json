@@ -86,7 +86,7 @@
     "publicIPAddressName": "[concat(variables('vmName'),parameters('publicIPAddressName'))]",
     "publicIPAddressType": "Dynamic",
     "vmName": "[parameters('vmName')]",
-    "vmSize": "Standard_A2",
+    "vmSize": "Standard_F2s_v4",
     "virtualNetworkName": "[concat(variables('vmName'),parameters('virtualNetworkName'))]",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
     "apiVersion": "2015-06-15",
@@ -205,7 +205,10 @@
               "fileUris": [
                 "https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017/Configure-SQL.ps1"
               ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file Configure-SQL.ps1 ','')]"
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file Configure-SQL.ps1 ','')]",
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file C:\infra\install\02_force_ExecutionPolicy.ps1 ','')]",
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file c:\infra\install\03_create_svcsql_account.ps1 ','')]",
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file c:\infra\install\04_install_SQL_Instance.ps1 ','sqlinstancename')]"
 
             }
           }
