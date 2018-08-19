@@ -205,7 +205,7 @@
               "fileUris": [
                 "https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017/Configure-SQL.ps1"
               ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ConfigureSQL.ps1 ','')]"
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file Configure-SQL.ps1 ','')]"
 
             }
           }
