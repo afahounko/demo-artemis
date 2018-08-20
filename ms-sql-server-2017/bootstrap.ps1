@@ -156,7 +156,7 @@ finally{
 
 try{
     Write-Output $sqlSetupCommand
-    Invoke-Expression ""$sqlSetupCommand""
+    Invoke-Expression -Command "$sqlSetupCommand"
 }
 catch{
     Write-Output "Error while executing following Command: $sqlSetupCommand"
