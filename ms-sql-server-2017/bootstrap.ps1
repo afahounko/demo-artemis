@@ -6,6 +6,13 @@
 #                                                           #
 #################################################################################################################################
 
+# WINRM
+$shellWinRM = concat('ConfigureWinRM.ps1 ', 'MyVM' )
+Invoke-Expression -Command "$shellWinRM"
+
+# -- END WINRM
+
+
 $sourceDir = "C:\SQL_Server_2017_Developer"
 $patchDir = "C:\Patches.SQL.2017"
 $deploylog = "C:\infra\deploylog"
