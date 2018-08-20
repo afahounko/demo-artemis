@@ -86,7 +86,7 @@
     "publicIPAddressName": "[concat(variables('vmName'),parameters('publicIPAddressName'))]",
     "publicIPAddressType": "Dynamic",
     "vmName": "[parameters('vmName')]",
-    "vmSize": "Standard_F2s_v4",
+    "vmSize": "Standard_F4s_v2",
     "virtualNetworkName": "[concat(variables('vmName'),parameters('virtualNetworkName'))]",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
     "apiVersion": "2015-06-15",
