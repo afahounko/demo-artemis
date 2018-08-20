@@ -11,12 +11,16 @@ param
 #$params = @{Flag=$true;Str=”Bagels”}
 #& “.\myScript.ps1” @params
 
+#$PSScriptRoot
+
+
+$command = concat($PSScriptRoot,"\Configure-SQL.ps1") 
+
+Invoke-Expression $command
 
 
 $command = ".\ConfigureWinRM.ps1 $fqdn" 
 
 Invoke-Expression $command
 
-$command = ".\Configure-SQL.ps1" 
 
-Invoke-Expression $command
