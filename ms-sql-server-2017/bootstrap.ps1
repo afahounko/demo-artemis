@@ -101,3 +101,63 @@ try{
 catch{ 
 	Write-Warning "Error while trying to copy files from : $networkSharedDir4 to $sourceDir"
 }
+
+
+
+### ------
+
+
+$instanceName = "ARTEMISD1"
+$workDir = "C:\infra\install"
+
+$policyCommand = $workDir + "\02_force_ExecutionPolicy.ps1"
+$svcactCommand = $workDir + "\03_create_svcsql_account.ps1"
+$sqlSetupCommand = $workDir + "\04_install_SQL_Instance.ps1 -instance " + $instanceName
+
+
+try{
+    
+    Write-Output $policyCommand
+    Invoke-Expression $policyCommand
+}
+catch{
+    Write-Output "Error while executing following Command: $policyCommand"
+}
+finally{
+    Start-Sleep -s 15
+}
+
+
+try{
+    
+    Write-Output $policyCommand
+    Invoke-Expression $policyCommand
+}
+catch{
+    Write-Output "Error while executing following Command: $policyCommand"
+}
+finally{
+    Start-Sleep -s 15
+}
+
+
+try{
+    Write-Output $svcactCommand
+    Invoke-Expression $svcactCommand
+
+}
+catch{
+    Write-Output "Error while executing following Command: $svcactCommand"
+}
+finally{
+    Start-Sleep -s 15
+}
+
+
+try{
+    Write-Output $sqlSetupCommand
+    Invoke-Expression ""$sqlSetupCommand""
+}
+catch{
+    Write-Output "Error while executing following Command: $sqlSetupCommand"
+}
