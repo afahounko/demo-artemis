@@ -210,7 +210,7 @@
                 
               ],
               
-              "commandToExecute": "concat('powershell -ExecutionPolicy Unrestricted -file bootstrap.ps1 ', '-fqdn ' , variables('hostDNSNameScriptArgument'))"
+              "commandToExecute": "concat('powershell -ExecutionPolicy Unrestricted -file bootstrap.ps1 ', '')"
              
 
             }
