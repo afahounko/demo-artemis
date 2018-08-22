@@ -205,8 +205,8 @@
               "fileUris": [
                 "https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017/bootstrap.ps1",
                 "https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017/Configure-SQL.ps1",
-                "https://raw.githubusercontent.com/afahounko/azure-quickstart-templates/master/201-vm-winrm-windows/ConfigureWinRM.ps1",
-                "https://raw.githubusercontent.com/afahounko/azure-quickstart-templates/master/201-vm-winrm-windows/makecert.exe"
+                "https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017/ConfigureWinRM.ps1",
+                "https://raw.githubusercontent.com/afahounko/demo-artemis/master/ms-sql-server-2017//makecert.exe"
                 
               ],
               "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file bootstrap.ps1 ','')]"
