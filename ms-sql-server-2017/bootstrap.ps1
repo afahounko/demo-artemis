@@ -47,7 +47,7 @@ if (!(Test-Path -path "$installDir")) #create it if not existing
 
 
 
-$installCmd0 = "net use Z: \\artemisdemo.file.core.windows.net\sqlserver2k /u:AZURE\artemisdemo FBu0zBLu8pgJ609ybk/HF6VfjjO7KhjliYuHBjdxXsG4hS+25YQhj/JLt3PnF4gkFfD+tjOqLJxx/bh/JJDI1A=="
+$installCmd0 = "net use Z: \\artemisdemo.file.core.windows.net\sqlserver /u:AZURE\artemisdemo F61uZaslNlR9Y2CJfhkX+QXswLnFxsIoaAbTp+prKHA9u7sjk9UyVM5fj7Wqwb6PW1/4ZkPvRjuFGtja+LV7aQ=="
 
 try{
 	Invoke-Expression $installCmd0
