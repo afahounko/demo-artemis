@@ -235,7 +235,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/mongo-install-centos.sh"
+            "https://raw.githubusercontent.com/afahounko/demo-artemis/master/mongodb-on-centos/mongo-install-centos.sh"
           ],
           "commandToExecute": "sh mongo-install-centos.sh"
         }
