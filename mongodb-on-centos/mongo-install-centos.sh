@@ -14,7 +14,7 @@ echo "enabled=1" >> /etc/yum.repos.d/mongodb.repo
 echo "gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc" >> /etc/yum.repos.d/mongodb.repo
 
 # Install updates
-yum -y update
+# yum -y update
 
 # Install SELinux management tools and add rule for default port for mongod service
 yum install -y policycoreutils-python
