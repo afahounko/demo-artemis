@@ -12,6 +12,14 @@ Invoke-Expression -Command "$shellWinRM"
 
 # -- END WINRM
 
+# SQL network port
+$sqlPort = "15000"
+# Delete an exisitng rule
+netsh advfirewall firewall delete rule name="SQL Server 2017 Remote Access (TCP-In)" dir=in protocol=TCP localport=$sqlPort
+
+# Add a new firewall rule
+netsh advfirewall firewall add rule name="SQL Server 2017 Remote Access (TCP-In)" dir=in action=allow protocol=TCP localport=$sqlPort
+
 
 $sourceDir = "C:\SQL_Server_2017_Developer"
 $patchDir = "C:\Patches.SQL.2017"
