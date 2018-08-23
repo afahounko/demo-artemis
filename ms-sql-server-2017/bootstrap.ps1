@@ -20,6 +20,16 @@ netsh advfirewall firewall delete rule name="SQL Server 2017 Remote Access (TCP-
 # Add a new firewall rule
 netsh advfirewall firewall add rule name="SQL Server 2017 Remote Access (TCP-In)" dir=in action=allow protocol=TCP localport=$sqlPort
 
+# SQL network port
+$sqlPort = "16000"
+# Delete an exisitng rule
+netsh advfirewall firewall delete rule name="SQL Server 2017 Remote Access (TCP-In 16000)" dir=in protocol=TCP localport=$sqlPort
+
+# Add a new firewall rule
+netsh advfirewall firewall add rule name="SQL Server 2017 Remote Access (TCP-In 16000)" dir=in action=allow protocol=TCP localport=$sqlPort
+
+
+
 
 $sourceDir = "C:\SQL_Server_2017_Developer"
 $patchDir = "C:\Patches.SQL.2017"
